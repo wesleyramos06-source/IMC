@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏃 FIT IMC - Calculadora de Índice de Massa Corporal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="icon">🏋️‍♂️</span>
+                <h1>FIT IMC</h1>
+            </div>
+            <p class="subtitle">Sua Jornada para uma Vida Saudável</p>
+        </header>
+
+        <main>
+            <section class="calculator-section">
+                <div class="calculator-card">
+                    <h2>📊 Calcule seu IMC</h2>
+
+                    <form id="imcForm">
+                        <div class="form-group">
+                            <label for="peso">⚖️ Peso (kg)</label>
+                            <input type="number" id="peso" name="peso" placeholder="Ex: 67" step="0.1" min="1" max="300"
+                                required value="67">
+                            <small class="hint">Digite seu peso em quilogramas</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="altura">📏 Altura (m)</label>
+                            <input type="number" id="altura" name="altura" placeholder="Ex: 1.73" step="0.01" min="0.5"
+                                max="3" required value="1.73">
+                            <small class="hint">Digite sua altura em metros</small>
+                        </div>
+
+                        <button type="submit" id="calcularBtn">
+                            🏃 CALCULAR IMC
+                        </button>
+                    </form>
+                </div>
+
+                <div id="resultadoContainer" class="resultado-container hidden">
+                    <div class="resultado-card">
+                        <div class="resultado-header">
+                            <span id="resultadoEmoji" class="resultado-emoji">💪</span>
+                            <h3>Seu Resultado</h3>
+                        </div>
+
+                        <div class="resultado-body">
+                            <div class="imc-valor">
+                                <span class="label">IMC</span>
+                                <span id="imcValor" class="valor">0.00</span>
+                            </div>
+
+                            <div class="classificacao">
+                                <span class="label">Classificação</span>
+                                <span id="classificacaoValor" class="valor">-</span>
+                            </div>
+
+                            <div id="mensagemMotivacional" class="mensagem-motivacional">
+                                <!-- Mensagem será inserida aqui -->
+                            </div>
+                        </div>
+
+                        <div class="indicador-imc">
+                            <div class="barra-fundo">
+                                <div id="barraProgresso" class="barra-progresso" style="width: 0%;"></div>
+                            </div>
+                            <div class="legenda">
+                                <span class="legenda-item" style="color: #3498db;">Abaixo</span>
+                                <span class="legenda-item" style="color: #2ecc71;">Normal</span>
+                                <span class="legenda-item" style="color: #f39c12;">Sobrepeso</span>
+                                <span class="legenda-item" style="color: #e74c3c;">Obesidade</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div class="acoes">
+                    <button id="historicoBtn" class="btn-secundario">
+                        📊 Ver Histórico
+                    </button>
+                    <button id="estatisticasBtn" class="btn-secundario">
+                        📈 Estatísticas
+                    </button>
+                    <button id="limparBtn" class="btn-perigo">
+                        🗑️ Limpar Histórico
+                    </button>
+                </div>
+
+                <div id="historicoContainer" class="historico-container hidden">
+                    <h3>📋 Histórico de Consultas</h3>
+                    <div id="listaHistorico" class="lista-historico"></div>
+                </div>
+
+                <div id="estatisticasContainer" class="estatisticas-container hidden">
+                    <h3>📈 Estatísticas</h3>
+                    <div id="estatisticasContent" class="estatisticas-content"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Baseado na tabela de classificação da OMS • © 2024 FIT IMC</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
